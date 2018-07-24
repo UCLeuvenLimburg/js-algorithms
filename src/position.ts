@@ -1,11 +1,11 @@
-import { Direction2D } from "./direction";
+import { Direction } from "./direction";
 
 
 export class Position
 {
     constructor(public readonly x : number, public readonly y : number) { }
 
-    public add(direction : Direction2D) : Position
+    public add(direction : Direction) : Position
     {
         return new Position(this.x + direction.dx, this.y + direction.dy);
     }

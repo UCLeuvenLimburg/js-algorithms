@@ -1,15 +1,15 @@
-export class Direction2D
+export class Direction
 {
     constructor(public readonly dx : number, public readonly dy : number) { }
 
-    public rotateCW() : Direction2D
+    public rotateCW() : Direction
     {
-        return new Direction2D(this.dy, -this.dx);
+        return new Direction(this.dy, -this.dx);
     }
 
-    public rotateCCW() : Direction2D
+    public rotateCCW() : Direction
     {
-        return new Direction2D(-this.dy, this.dx);
+        return new Direction(-this.dy, this.dx);
     }
 
     public get angleInDegrees() : number
