@@ -37,5 +37,8 @@
     "typescript": "^2.9.2",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "maybe": "github:UCLeuvenLimburg/maybe"
   }
 }

@@ -1,3 +1,6 @@
+import { Maybe } from 'maybe';
+
+
 export function count<T>(xs : Iterable<T>, predicate : (t : T) => boolean) : number
 {
     let result = 0;
@@ -71,4 +74,17 @@ export function any<T>(xs : Iterable<T>, predicate : (t : T) => boolean) : boole
     }
 
     return false;
+}
+
+export function find<T>(xs : Iterable<T>, predicate : (t : T) => boolean) : Maybe<T>
+{
+    for ( let x of xs )
+    {
+        if ( predicate(x) )
+        {
+            return Maybe.just(x);
+        }
+    }
+
+    return Maybe.nothing();
 }
