@@ -88,3 +88,41 @@ export function find<T>(xs : Iterable<T>, predicate : (t : T) => boolean) : Mayb
 
     return Maybe.nothing();
 }
+
+export function minimumBy<T>(xs : Iterable<T>, f : (t : T) => number) : Maybe<T>
+{
+    let bestScore = Number.POSITIVE_INFINITY;
+    let best = Maybe.nothing<T>();
+
+    for ( let x of xs )
+    {
+        const score = f(x);
+
+        if ( score < bestScore )
+        {
+            bestScore = score;
+            best = Maybe.just(x);
+        }
+    }
+
+    return best;
+}
+
+export function maximumBy<T>(xs : Iterable<T>, f : (t : T) => number) : Maybe<T>
+{
+    let bestScore = Number.NEGATIVE_INFINITY;
+    let best = Maybe.nothing<T>();
+
+    for ( let x of xs )
+    {
+        const score = f(x);
+
+        if ( score > bestScore )
+        {
+            bestScore = score;
+            best = Maybe.just(x);
+        }
+    }
+
+    return best;
+}
