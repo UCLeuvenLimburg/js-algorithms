@@ -21,7 +21,7 @@ export function range(from : number, to : number) : number[]
     }
     else
     {
-        const result = new Array(from - to);
+        const result = new Array(to - from);
 
         for ( let i = 0; i !== result.length; ++i )
         {
