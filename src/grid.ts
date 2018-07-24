@@ -79,7 +79,7 @@ export abstract class Grid<T>
 
     public vmap<U>(f : (t : T) => U) : Grid<U>
     {
-        
+        return new VirtualGrid(this.width, this.height, p => f(this.at(p)));
     }
 
     public equal<U>(grid : Grid<U>, comparer : (t : T, u : U) => boolean) : boolean
