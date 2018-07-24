@@ -30,7 +30,7 @@ export abstract class Grid<T>
         }
         else
         {
-            return range(0, this.width).map(rowIndex => this.at(new Position(columnIndex, rowIndex)));
+            return range(0, this.height).map(rowIndex => this.at(new Position(columnIndex, rowIndex)));
         }
     }
 
