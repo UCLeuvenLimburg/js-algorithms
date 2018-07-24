@@ -126,3 +126,20 @@ export function maximumBy<T>(xs : Iterable<T>, f : (t : T) => number) : Maybe<T>
 
     return best;
 }
+
+export function createArray<T>(length : number, initializer : (i : number) => T) : T[]
+{
+    const result = new Array<T>(length);
+
+    for ( let i = 0; i !== length; ++i )
+    {
+        result[i] = initializer(i);
+    }
+
+    return result;
+}
+
+export function repeat<T>(n : number, x : T)  : T[]
+{
+    return createArray<T>(n, _ => x);
+}

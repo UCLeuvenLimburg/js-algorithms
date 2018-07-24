@@ -7,3 +7,5 @@ export declare function any<T>(xs: Iterable<T>, predicate: (t: T) => boolean): b
 export declare function find<T>(xs: Iterable<T>, predicate: (t: T) => boolean): Maybe<T>;
 export declare function minimumBy<T>(xs: Iterable<T>, f: (t: T) => number): Maybe<T>;
 export declare function maximumBy<T>(xs: Iterable<T>, f: (t: T) => number): Maybe<T>;
+export declare function createArray<T>(length: number, initializer: (i: number) => T): T[];
+export declare function repeat<T>(n: number, x: T): T[];
