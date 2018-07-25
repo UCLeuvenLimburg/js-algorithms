@@ -143,3 +143,8 @@ export function repeat<T>(n : number, x : T)  : T[]
 {
     return createArray<T>(n, _ => x);
 }
+
+export function indices<T>(xs : T[]) : number[]
+{
+    return range(0, xs.length);
+}

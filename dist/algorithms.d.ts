@@ -9,3 +9,4 @@ export declare function minimumBy<T>(xs: Iterable<T>, f: (t: T) => number): Mayb
 export declare function maximumBy<T>(xs: Iterable<T>, f: (t: T) => number): Maybe<T>;
 export declare function createArray<T>(length: number, initializer: (i: number) => T): T[];
 export declare function repeat<T>(n: number, x: T): T[];
+export declare function indices<T>(xs: T[]): number[];
