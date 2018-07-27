@@ -1,5 +1,6 @@
 import { Position } from './position';
 import { range, filter, all } from './algorithms';
+import { Direction } from 'direction';
 
 
 export abstract class Grid<T>
@@ -103,6 +104,21 @@ export abstract class Grid<T>
     {
         return filter(position.around8, p => this.isInside(p));
     }
+
+    public iterator(position : Position, direction : Direction) : IGridIterator<T>
+    {
+        return new GridIterator(this, position, direction);
+    }
+
+    public rowIterator(rowIndex : number) : IGridIterator<T>
+    {
+        return this.iterator(new Position(0, rowIndex), new Direction(1, 0));
+    }
+
+    public columnIterator(columnIndex : number) : IGridIterator<T>
+    {
+        return this.iterator(new Position(columnIndex, 0), new Direction(0, 1));
+    }
 }
 
 class ConcreteGrid<T> extends Grid<T>
@@ -158,6 +174,42 @@ class VirtualGrid<T> extends Grid<T>
         {
             return this.fetch(position);
         }
+    }
+}
+
+export interface IGridIterator<T>
+{
+    readonly endReached : boolean;
+
+    readonly pointee : T;
+
+    next() : void;
+
+    position : Position;
+}
+
+class GridIterator<T> implements IGridIterator<T>
+{
+    constructor(private grid : Grid<T>, private _position : Position, private readonly direction : Direction) { }
+
+    public get endReached() : boolean
+    {
+        return this.grid.isInside(this._position);
+    }
+
+    public get pointee() : T
+    {
+        return this.grid.at(this._position);
+    }
+
+    public next() : void
+    {
+        this._position = this._position.add(this.direction);
+    }
+
+    public get position() : Position
+    {
+        return this._position;
     }
 }
 
