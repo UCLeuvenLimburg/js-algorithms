@@ -1,6 +1,6 @@
 import { Position } from './position';
 import { range, filter, all } from './algorithms';
-import { Direction } from 'direction';
+import { Direction } from './direction';
 
 
 export abstract class Grid<T>
