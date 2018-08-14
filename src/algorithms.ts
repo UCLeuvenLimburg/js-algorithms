@@ -35,6 +35,29 @@ export function range(from : number, to : number) : number[]
     }
 }
 
+export function* generateRange(from : number, to : number) : Iterable<number>
+{
+    for ( let i = from; i < to; ++i )
+    {
+        yield i;
+    }
+}
+
+export function allEqual<T>(xs : T[], equality ?: (x : T, y : T) => boolean) : boolean
+{
+    const eq = equality || defaultEquality;
+
+    for ( let i = 1; i < xs.length; ++i )
+    {
+        if ( !eq(xs[0], xs[i]) )
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 export function filter<T>(xs : Iterable<T>, predicate : (t : T) => boolean) : T[]
 {
     const result = [];
@@ -185,10 +208,9 @@ export function isPermutation<T>(xs : T[], ys : T[], equality ?: (x : T, y : T) 
 
         return true;
     }
+}
 
-
-    function defaultEquality<T>(x : T, y : T) : boolean
-    {
-        return x === y;
-    }
+function defaultEquality<T>(x : T, y : T) : boolean
+{
+    return x === y;
 }
