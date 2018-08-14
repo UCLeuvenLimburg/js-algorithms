@@ -231,3 +231,8 @@ export function map<T, U>(xs : T[], f : (x : T) => U) : U[]
 {
     return createArray(xs.length, i => f(xs[i]));
 }
+
+export function contains<T>(xs : T[], y : T) : boolean
+{
+    return any(xs, x => x === y);
+}

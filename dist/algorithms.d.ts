@@ -15,3 +15,4 @@ export declare function indices<T>(xs: T[]): number[];
 export declare function isPermutation<T>(xs: T[], ys: T[], equality?: (x: T, y: T) => boolean): boolean;
 export declare function sum(ns: number[]): number;
 export declare function map<T, U>(xs: T[], f: (x: T) => U): U[];
+export declare function contains<T>(xs: T[], y: T): boolean;
