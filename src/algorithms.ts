@@ -226,3 +226,8 @@ export function sum(ns : number[]) : number
 
     return total;
 }
+
+export function map<T, U>(xs : T[], f : (x : T) => U) : U[]
+{
+    return createArray(xs.length, i => f(xs[i]));
+}
