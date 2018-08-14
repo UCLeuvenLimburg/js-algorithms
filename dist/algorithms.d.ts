@@ -13,3 +13,4 @@ export declare function createArray<T>(length: number, initializer: (i: number) 
 export declare function repeat<T>(n: number, x: T): T[];
 export declare function indices<T>(xs: T[]): number[];
 export declare function isPermutation<T>(xs: T[], ys: T[], equality?: (x: T, y: T) => boolean): boolean;
+export declare function sum(ns: number[]): number;
