@@ -214,3 +214,15 @@ function defaultEquality<T>(x : T, y : T) : boolean
 {
     return x === y;
 }
+
+export function sum(ns : number[]) : number
+{
+    let total = 0;
+
+    for ( let n of ns )
+    {
+        total += n;
+    }
+
+    return total;
+}
