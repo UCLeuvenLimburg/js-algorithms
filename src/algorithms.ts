@@ -148,3 +148,47 @@ export function indices<T>(xs : T[]) : number[]
 {
     return range(0, xs.length);
 }
+
+export function isPermutation<T>(xs : T[], ys : T[], equality ?: (x : T, y : T) => boolean)
+{
+    const eq = equality || defaultEquality;
+
+    if ( xs.length !== ys.length )
+    {
+        return false;
+    }
+    else
+    {
+        const used = repeat(xs.length, false);
+        
+        for ( const x of xs )
+        {
+            let found = false;
+            let i = 0;
+
+            while ( !found && i < ys.length )
+            {
+                if ( !used[i] && eq(x, ys[i]) )
+                {
+                    used[i] = true;
+                    found = true;
+                }
+
+                ++i;
+            }
+
+            if ( !found )
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    function defaultEquality<T>(x : T, y : T) : boolean
+    {
+        return x === y;
+    }
+}
