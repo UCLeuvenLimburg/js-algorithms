@@ -58,7 +58,7 @@
     },
     "include": [
         "./src/**/*",
-        "./dist/**/*"
+        "./dist/**/*", "tests/last-index-of.ts"
     ],
     "exclude": [
         "webpack.config.js",

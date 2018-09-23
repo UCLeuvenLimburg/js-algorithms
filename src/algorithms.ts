@@ -236,3 +236,34 @@ export function contains<T>(xs : T[], y : T) : boolean
 {
     return any(xs, x => x === y);
 }
+
+export function firstIndexOf<T>(xs : T[], predicate : (t : T) => boolean) : Maybe<number>
+{
+    for ( let i = 0; i !== xs.length; ++i )
+    {
+        const x = xs[i];
+
+        if ( predicate(x) )
+        {
+            return Maybe.just(i);
+        }
+    }
+
+    return Maybe.nothing();
+}
+
+export function lastIndexOf<T>(xs : T[], predicate : (t : T) => boolean) : Maybe<number>
+{
+    for ( let i = xs.length - 1; i >= 0; --i )
+    {
+        const x = xs[i];
+
+        if ( predicate(x) )
+        {
+            return Maybe.just(i);
+        }
+    }
+
+    return Maybe.nothing();
+}
+
